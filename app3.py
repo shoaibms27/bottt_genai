@@ -4,7 +4,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.chains import RetrievalQA
-from together import Together  # Corrected import for Together
+from together import TogetherAPI  # Use TogetherAPI class if applicable
 
 # Streamlit app title
 st.title("🤖 AskMyDocs by SHOEB")
@@ -33,8 +33,8 @@ if uploaded_file:
         embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
         vectorstore = FAISS.from_documents(texts, embeddings)
 
-        # Load TogetherAI LLM with secret API key
-        llm = Together(
+        # Load TogetherAI LLM with secret API key using TogetherAPI
+        llm = TogetherAPI(
             model="mistralai/Mistral-7B-Instruct-v0.2",
             temperature=0.7,
             max_tokens=512,
