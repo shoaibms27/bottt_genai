@@ -3,4 +3,4 @@ langchain==0.0.214
 huggingface_hub
 faiss-cpu
 python-dotenv
-together 
+together  
